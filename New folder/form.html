@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>My Project</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script>
+    
+	//this javascript file is used for the validation purpose
+    function validation(){
+	var name = document.getElementById("name").value;
+	var subject = document.getElementById("subject").value;
+	var age = document.getElementById("age").value;
+	var phone = document.getElementById("phone").value;
+	var email = document.getElementById("email").value;
+	var message = document.getElementById("message").value;
+	var error_message = document.getElementById("error_message");
+	var text;
+	
+	error_message.style.padding = "10px";
+	
+	if(name.length <4){
+		text = "Name Should Be Greater Than 4 Latter";
+		error_message.innerHTML = text;
+		return false;
+	}
+	
+	if(subject.length <6){
+		text = "Sunject Name Should Be Greater Than 6 Latter";
+		error_message.innerHTML = text;
+		return false;
+	}
+	
+	if(isNaN(age) || age.length !=2){
+		text = "Please Enter Valid Age";
+		error_message.innerHTML = text;
+		return false;
+	}
+		
+	if(isNaN(phone) || phone.length !=11){
+		text = "Enter Your 11 Digit Number";
+		error_message.innerHTML = text;
+		return false;
+	}
+	
+	if(email.indexOf("@") == -1|| email.length < 6){
+		text = "Enter Your Valid Email";
+		error_message.innerHTML = text;
+		return false;
+	}
+	
+	if(message.length <=100){
+		text = "Message Should Be More Than 100 Characters";
+		error_message.innerHTML = text;
+		return false;
+	}
+	alert ("Form Submitter Sucsesfully")
+	
+	return false;
+	
+}
+    
+    </script>
+</head>
+<body bgcolor="#fece0c";>
+
+<div class="wrapper">
+	<img src="pic2.png" height="60" style="margin-left:80px; margin-bottom:17px;">
+	<h2>CONTACT US</h2>
+    <div id="error_message"></div>
+    
+    <form id="myform" onSubmit="return validation()"><!-- this is the starting of the form which contains many inputs
+    THis form is basically form the students who wahts to enroll for the online course  -->
+    	<div class="input_field">
+        	<input type="text" placeholder="Full Name" id="name">
+        </div>
+    	<div class="input_field">
+        	<input type="text" placeholder="Subject" id="subject">
+        </div>
+        <div class="input_field">
+        	<input type="text" placeholder="Age" id="age">
+        </div>
+        <div class="input_field">
+        	Male: <input type="radio" name="status">
+        	Female: <input type="radio" name="status">
+        </div>
+        <div class="input_field">
+        	<input type="text" placeholder="Phone" id="phone">
+        </div>
+        <div class="input_field">
+        	<input type="text" placeholder="abcd@xyz.com" id="email">
+        </div>
+        <div class="input_field">
+        	<textarea id="message" placeholder="Message: Why you want to enroll for this course?" ></textarea>
+        </div>
+        <div class="btn">
+        	<input type="submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>
